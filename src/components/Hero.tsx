@@ -2,8 +2,19 @@
 
 import { motion } from "framer-motion";
 import { Phone, Calendar, Dumbbell, Zap } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function Hero() {
+    const [radius, setRadius] = useState(180);
+
+    useEffect(() => {
+        const updateRadius = () => {
+            setRadius(window.innerWidth < 768 ? 120 : 180);
+        };
+        updateRadius();
+        window.addEventListener("resize", updateRadius);
+        return () => window.removeEventListener("resize", updateRadius);
+    }, []);
     return (
         <section id="home" className="relative md:h-screen min-h-[800px] w-full overflow-hidden flex items-center bg-black">
             {/* Background with overlay */}
@@ -119,8 +130,8 @@ export default function Hero() {
                                     className="absolute w-8 h-8 md:w-10 md:h-10 flex items-center justify-center"
                                     animate={{
                                         rotate: i * 120 + 360,
-                                        x: Math.cos((i * 120 * Math.PI) / 180) * (window?.innerWidth < 768 ? 120 : 180),
-                                        y: Math.sin((i * 120 * Math.PI) / 180) * (window?.innerWidth < 768 ? 120 : 180),
+                                        x: Math.cos((i * 120 * Math.PI) / 180) * radius,
+                                        y: Math.sin((i * 120 * Math.PI) / 180) * radius,
                                     }}
                                     transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
                                 >
