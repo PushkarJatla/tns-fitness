@@ -45,7 +45,7 @@ export default function Services() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
                     {services.map((service, index) => (
                         <motion.div
                             key={index}
@@ -54,19 +54,19 @@ export default function Services() {
                             transition={{ duration: 0.5, delay: index * 0.05 }}
                             viewport={{ once: true }}
                             whileHover={{ y: -10 }}
-                            className="group p-10 bg-secondary/50 backdrop-blur-xl border border-white/5 rounded-[2.5rem] hover:border-primary/50 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(255,0,0,0.1)] relative overflow-hidden text-center"
+                            className="group p-4 md:p-10 bg-secondary/50 backdrop-blur-xl border border-white/5 rounded-2xl md:rounded-[2.5rem] hover:border-primary/50 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(255,0,0,0.1)] relative overflow-hidden text-center"
                         >
                             {/* Card Accent */}
-                            <div className="absolute top-0 left-0 w-2 h-0 bg-primary group-hover:h-full transition-all duration-500" />
+                            <div className="absolute top-0 left-0 w-1 md:w-2 h-0 bg-primary group-hover:h-full transition-all duration-500" />
 
-                            <div className="w-20 h-20 bg-white/5 rounded-3xl flex items-center justify-center mb-8 mx-auto border border-white/10 group-hover:bg-primary group-hover:rotate-[360deg] group-hover:scale-110 transition-all duration-700 shadow-2xl relative z-10">
-                                <service.icon className="text-primary group-hover:text-white" size={36} />
+                            <div className="w-10 h-10 md:w-20 md:h-20 bg-white/5 rounded-xl md:rounded-3xl flex items-center justify-center mb-4 md:mb-8 mx-auto border border-white/10 group-hover:bg-primary group-hover:rotate-[360deg] group-hover:scale-110 transition-all duration-700 shadow-2xl relative z-10">
+                                <service.icon className="text-primary group-hover:text-white w-5 h-5 md:w-9 md:h-9" />
                             </div>
 
-                            <h3 className="text-white font-black text-xl uppercase mb-3 group-hover:text-primary transition-colors tracking-tighter">
+                            <h3 className="text-white font-black text-xs md:text-xl uppercase mb-1 md:mb-3 group-hover:text-primary transition-colors tracking-tighter">
                                 {service.title}
                             </h3>
-                            <p className="text-white/40 text-[11px] font-bold uppercase tracking-widest leading-relaxed">
+                            <p className="text-white/40 text-[8px] md:text-[11px] font-bold uppercase tracking-widest leading-relaxed">
                                 {service.desc}
                             </p>
                         </motion.div>
